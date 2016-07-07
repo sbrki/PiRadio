@@ -2,8 +2,10 @@
 PiRadio is a small &amp; lightweight python radio that is based on PiFM
 
 Instructions:
-1. place your songs in "music folder" (songs must be in wav format)
+1. create a "music" folder inside of PiRadio folder and place your music there (songs must be in wav format)
+
 2. edit the settings on the beggining of PiRadio.py file to suit your interest
+
 3. Run PiRadio.py with sudo and enjoy your radio!
 
 
