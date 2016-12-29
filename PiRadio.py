@@ -1,4 +1,4 @@
-print("Loading.. this may take a few seconds.")
+print("Loading.. this may take a couple of seconds.")
 import subprocess
 import os 
 import random
