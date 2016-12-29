@@ -3,37 +3,48 @@ import subprocess
 import os 
 import random
 import apt
+import configparser
 
+def install_package_by_apt(package_name):
+	"""Checks if user has a package_name package installed.
+	Tries to install it if users hasn't got it installed and
+	agrees to install it."""
 
-#check if user has mpg123 installed
-cache = apt.Cache()
-if not cache["mpg123"].is_installed:
-	pkg = cache["mpg123"]
-	i=input("Module 'mpg123' is not installed. Do you want to install it now?\n(YES/NO):")
-	if i=="YES":
-		print("OK, please wait..")
-		pkg.mark_install()
-		cache.commit()
+	cache = apt.Cache()
+	if not cache[package_name].is_installed:
+		pkg = cache[package_name]
+		i = input("Module '{}' is not installed. Do you want to install it now?\n(Y/n):".format(package_name))
+		if i == "Y":
+			print("OK, please wait..")
+			pkg.mark_install()
+			cache.commit()
+		else:
+			print("Declined to install '{}'.".format(package_name))
 	else:
-		print("Declined to install 'mpg123'.")
-else:
-	print("Module 'mpg123' is already installed on this pi.")
+		print("Module '{}' is already installed on this pi.".format(package_name))
 
 
 
-#config
-MUSIC_DIR="music"
-BROADCAST_FREQUENCY="97.8" #MHz
-RANDOM=True
+
+# Install the mpeg123 if not already installed.
+install_package_by_apt("mpg123")
+
+
+# Read the config.ini file
+parser = configparser.SafeConfigParser()
+parser.read("config.ini")
+MUSIC_DIR = parser.get("main","MUSIC_DIR")
+BROADCAST_FREQUENCY = parser.get("main","BROADCAST_FREQUENCY") #MHz
+RANDOM = parser.get("main","RANDOM")
 
 
 
-#pipe stuff
-music_pipe_r,music_pipe_w= os.pipe()
-dev_null=open(os.devnull, "w")
+# Pipe stuff
+music_pipe_r,music_pipe_w = os.pipe()
+dev_null = open(os.devnull, "w")
 
 
-#start the pifm process
+# Start the pifm process
 PiFMprocess = subprocess.Popen(["./pifm","-",BROADCAST_FREQUENCY,"48000", "stereo"], stdin=music_pipe_r, stdout=dev_null)
 print("PiFM process started. {} MHz, 48KHz bitrate, stereo.".format(BROADCAST_FREQUENCY))
 
