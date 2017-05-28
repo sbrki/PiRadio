@@ -41,7 +41,7 @@ Connect any kind of wire (20 cm will do) to **GPIO Pin 4** on your Raspberry Pi.
 ![props to mcuoneclipse.com](http://i.imgur.com/zeowQRH.png)
 
 ---
-**4. Run PiRadio.py **
+**4. Run PiRadio.py**
 
 Run PiRadio.py **as super user (*sudo*)** and enjoy your radio!
 
