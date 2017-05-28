@@ -43,7 +43,7 @@ Connect any kind of wire (20 cm will do) to **GPIO Pin 4** on your Raspberry Pi.
 ---
 **4. Run PiRadio.py**
 
-Run PiRadio.py **as super user (*sudo*)** and enjoy your radio!
+Run `sudo python3 PiRadio.py` and enjoy your radio!
 
 ---
 ### DISCLAIMER: Where I live, It is legal to broadcast on unassigned FM frequencies if the source is less powerful than 0.3 W.
