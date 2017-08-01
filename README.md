@@ -29,7 +29,7 @@ Songs can be in whichever format you prefer, if *mpg123* supports it.
 
 Edit the settings in `config.ini` file to suit your interest.
 
-The `BROADCAST_FREQUENCY` is measured in *MHz* (Megahertz) and it sets the radio emmiter frequency.
+The `BROADCAST_FREQUENCY` is measured in *MHz* (Megaherz) and it sets the radio emmiter frequency.
 
 The `RANDOM` tells PiRadio to shuffle the songs (play them in a random order).
 
