@@ -5,7 +5,7 @@ print("Loading - this may take a couple of seconds.")
 # If there were no print at the beggining, one could think that script is broken,
 # because it doesn't output anything for so long.
 import subprocess
-import os 
+import os
 import random
 import apt
 import configparser
@@ -35,7 +35,7 @@ def install_package_with_apt(package_name):
 if __name__ == "__main__":
 
     # Install the mpg123 if not already installed.
-    install_package_by_apt("mpg123")
+    install_package_with_apt("mpg123")
 
 
     # Read the config.ini file
